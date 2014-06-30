@@ -7,7 +7,7 @@ It based on the Project [https://github.com/schnawel007/bootstrap3-wysihtml5/](h
 Examples
 =============
 
-[http://arvigeus.github.io/bootstrap3-wysihtml5/index.html](http://arvigeus.github.io/bootstrap3-wysihtml5/index.html/)
+[http://arvigeus.github.io/bootstrap3-wysihtml5](http://arvigeus.github.io/bootstrap3-wysihtml5)
 
 Quick Start
 =============
@@ -173,6 +173,7 @@ To disable any rules altogether, use:
 $('.textarea').wysihtml5('deepExtend', {
   useParserRules: false
 });
+```
 
 ###  Defaults
 
