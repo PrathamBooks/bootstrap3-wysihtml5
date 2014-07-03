@@ -602,7 +602,7 @@
             var insertTable = function() {
                 var rows = rowsInput.val(),
                     cols = colsInput.val(),
-                    heading = headingInput.data("index");
+                    heading = headingInput.attr("data-index");
                 if(heading == 1) heading = "rows";
                 else if(heading == 2) heading = "cols";
                 rowsInput.val(rowsInitialValue);
@@ -643,7 +643,7 @@
             insertTableModal.find(".wysihtml5-table-heading").click(function(e) {
                 var target = e.target || e.srcElement;
                 var el = $(target);
-                insertTableModal.find('.current-heading').text(el.html()).attr("data-index", el.data("index"));
+                insertTableModal.find('.current-heading').text(el.html()).attr("data-index", el.attr("data-index"));
             });
 
             insertButton.click(insertTable);
