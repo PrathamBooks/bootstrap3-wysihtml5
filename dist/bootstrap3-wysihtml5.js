@@ -95,7 +95,7 @@
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
                 "<li class='wysihtml5-toolbar-link'>" +
-                    "<div class='bootstrap-wysihtml5-insert-link-modal modal'>" +
+                    "<div class='bootstrap-wysihtml5-insert-link-modal modal fade'>" +
                         "<div class='modal-dialog'>"+
                             "<div class='modal-content'>"+
                                 "<div class='modal-header'>" +
@@ -126,7 +126,7 @@
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
                 "<li class='wysihtml5-toolbar-table'>" +
-                    "<div class='bootstrap-wysihtml5-insert-table-modal modal'>" +
+                    "<div class='bootstrap-wysihtml5-insert-table-modal modal fade'>" +
                         "<div class='modal-dialog'>"+
                             "<div class='modal-content'>"+
                                 "<div class='modal-header'>" +
@@ -181,7 +181,7 @@
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
                 "<li class='wysihtml5-toolbar-image'>" +
-                    "<div class='bootstrap-wysihtml5-insert-image-modal modal'>" +
+                    "<div class='bootstrap-wysihtml5-insert-image-modal modal fade'>" +
                         "<div class='modal-dialog'>"+
                             "<div class='modal-content'>"+
                                 "<div class='modal-header'>" +
@@ -221,7 +221,7 @@
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
                 "<li class='wysihtml5-toolbar-video'>" +
-                    "<div class='bootstrap-wysihtml5-insert-video-modal modal'>" +
+                    "<div class='bootstrap-wysihtml5-insert-video-modal modal fade'>" +
                         "<div class='modal-dialog'>"+
                             "<div class='modal-content'>"+
                                 "<div class='modal-header'>" +
@@ -467,7 +467,7 @@
                 urlInput.focus();
             });
 
-            insertImageModal.on('hide.bs.modal', function() {
+            insertImageModal.on('hidden.bs.modal', function() {
                 errorMsg.css('visibility', "hidden");
                 urlInput.val('');
                 insertImageModal.find(".input-group-btn.open").removeClass('open');
@@ -522,7 +522,7 @@
                 urlInput.focus();
             });
 
-            insertVideoModal.on('hide.bs.modal', function() {
+            insertVideoModal.on('hidden.bs.modal', function() {
                 errorMsg.css('visibility', "hidden");
                 urlInput.val('');
                 setTimeout(function(){self.editor.currentView.element.focus();});
@@ -580,7 +580,7 @@
                 urlInput.focus();
             });
 
-            insertLinkModal.on('hide.bs.modal', function() {
+            insertLinkModal.on('hidden.bs.modal', function() {
                 errorMsg.css('visibility', "hidden");
                 urlInput.val('');
                 setTimeout(function(){self.editor.currentView.element.focus();});
@@ -652,7 +652,7 @@
                 rowsInput.focus();
             });
 
-            insertTableModal.on('hide.bs.modal', function() {
+            insertTableModal.on('hidden.bs.modal', function() {
                 errorMsg.css('visibility', "hidden");
                 rowsInput.val(rowsInitialValue);
                 colsInput.val(colsInitialValue);
