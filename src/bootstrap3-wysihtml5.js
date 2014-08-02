@@ -232,7 +232,7 @@
                                     "<h4 class='modal-title'>" + locale.video.insert + "</h4>" +
                                 "</div>" +
                                 "<div class='modal-body'>" +
-                                    "<input type='text' data-wysihtml5-dialog-field='src' placeholder='https://www.youtube.com/watch?v=XXXXXXXXXXX' class='bootstrap-wysihtml5-insert-video-url form-control'>" +
+                                    "<input type='text' data-wysihtml5-dialog-field='src' placeholder='https://' class='bootstrap-wysihtml5-insert-video-url form-control'>" +
                                     "<br/>" +
                                     "<div class='btn-group bootstrap-wysihtml5-insert-video-format' data-toggle='buttons'>" +
                                         "<label class='btn btn-default active' title='" + locale.video.widescreen + "'>" +
@@ -242,7 +242,8 @@
                                             "<input type='radio' data-value='tv' name='options'> &nbsp;4:3&nbsp;" +
                                         "</label>" +
                                     "</div>" +
-                                    "<br/>" +
+                                    "<i class='glyphicon glyphicon-question-sign pull-right' title='" + locale.video.supported + ": &#10;YouTube, &#10;Vimeo, &#10;DailyMotion, &#10;Vbox7'></i>" +
+                                    "<br/><br/>" +
                                     "<div class='alert alert-danger' style='visibility:hidden;' role='alert'>" + locale.video.invalid + "</div>" +
                                 "</div>" +
                                 "<div class='modal-footer'>" +
@@ -487,15 +488,28 @@
             var insertVideo = function() {
                 errorMsg.css('visibility', "hidden");
                 var linkUrl = urlInput.val();
-                var embedUrl = linkUrl;
+                var embedUrl = false;
 
 
-                if (/^(https?\:\/\/www.youtube.com\/watch\?v=)/i.test(linkUrl)) {
-                    var linkParams = linkUrl.replace(/^(https?\:\/\/www.youtube.com\/watch\?v=)/, "");
+                if (/^(https?\:\/\/(www.)?youtube.com\/watch\?v=)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www.)?youtube.com\/watch\?v=)/, "");
+                    embedUrl = '//www.youtube.com/embed/' + embedUrl.split('&')[0];
+                } else if(/^(https?\:\/\/(www.)?youtu.be\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?youtu.be\/)/, "");
+                    embedUrl = '//www.youtube.com/embed/' + embedUrl.split('&')[0];
+                } else if(/^(https?\:\/\/(www.)?vimeo.com\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?vimeo.com\/)/, "");
+                    embedUrl = '//player.vimeo.com/video/' + embedUrl.split('&')[0] + "?title=0&byline=0&portrait=0&badge=0";
+                } else if(/^(https?\:\/\/(www.)?dailymotion.com\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?dailymotion.com\/)/, "");
+                    embedUrl = '//dailymotion.com/embed/' + embedUrl.split('&')[0];
+                } else if(/^(https?\:\/\/(www.)?vbox7.com\/play:)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?vbox7.com\/play:)/, "");
+                    embedUrl = '//vbox7.com/emb/external.php?vid=' + embedUrl.split('&')[0];
+                }
+
+                if(embedUrl) {
                     var format = insertVideoModal.find(".bootstrap-wysihtml5-insert-video-format input:checked").data("value");
-                    embedUrl = 'http://www.youtube.com/embed/' + linkParams.split('&')[0];
-
-                    urlInput.val(linkUrl);
                     self.editor.currentView.element.focus();
                     if (caretBookmark) {
                         self.editor.composer.selection.setBookmark(caretBookmark);
@@ -955,10 +969,11 @@
                 error: "An error occurred reading this file"
             },
             video: {
-                insert: "Insert YouTube Video",
+                insert: "Insert Video",
                 cancel: "Cancel",
                 widescreen: "Widescreen",
                 tv: "TV",
+                supported: "Supported video formats",
                 invalid: "Invalid video URL"
             },
             html: {
@@ -1000,8 +1015,6 @@
                 video = this.state(composer),
                 i,
                 parent;
-
-            console.log(format);
 
             if (video) {
                 // Video already selected, set the caret before it and delete it
