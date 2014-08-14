@@ -25,7 +25,7 @@
         "color": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
-                "<li class='dropdown wysihtml5-toolbar-video'>" +
+                "<li class='dropdown wysihtml5-toolbar-color'>" +
                     "<a class='btn dropdown-toggle " + size + " btn-default' data-toggle='dropdown' href='#' tabindex='-1'>" +
                         "<span class='current-color'>" + locale.colours.black + "</span>&nbsp;<b class='caret'></b>" +
                     "</a>" +
@@ -261,9 +261,7 @@
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
                 "<li>" +
-                    "<div class='btn-group'>" +
-                        "<a class='btn " + size + " btn-danger' data-wysihtml5-action='change_view' title='" + locale.html.edit + "' tabindex='-1'><b style='letter-spacing:1px;'>&lt;/&gt;</b></a>" +
-                    "</div>" +
+                    "<button type='button' class='btn " + size + " btn-danger' data-wysihtml5-action='change_view' title='" + locale.html.edit + "' tabindex='-1'><b style='letter-spacing:1px;'>&lt;/&gt;</b></button>" +
                 "</li>";
         }
     };
@@ -390,9 +388,9 @@
         },
 
         initHtml: function(toolbar) {
-            var changeViewSelector = "a[data-wysihtml5-action='change_view']";
+            var changeViewSelector = "[data-wysihtml5-action='change_view']";
             toolbar.find(changeViewSelector).click(function(e) {
-                toolbar.find('a.btn').not(changeViewSelector).toggleClass('disabled');
+                toolbar.find('.btn').not(changeViewSelector).toggleClass('disabled');
             });
         },
 
