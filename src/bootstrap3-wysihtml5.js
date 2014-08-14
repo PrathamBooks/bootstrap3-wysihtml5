@@ -112,13 +112,13 @@
                                     "<div class='alert alert-danger' style='visibility:hidden;' role='alert'>" + locale.link.invalid + "</div>" +
                                 "</div>" +
                                 "<div class='modal-footer'>" +
-                                    "<button class='btn btn-default' data-dismiss='modal'>" + locale.link.cancel + "</button>" +
-                                    "<button class='btn btn-primary' data-dismiss='modal'>" + locale.link.insert + "</button>" +
+                                    "<button type='button' class='btn btn-default' data-dismiss='modal'>" + locale.link.cancel + "</button>" +
+                                    "<button type='button' class='btn btn-primary' data-dismiss='modal'>" + locale.link.insert + "</button>" +
                                 "</div>" +
                             "</div>" +
                         "</div>" +
                     "</div>" +
-                    "<button class='btn " + size + " btn-default' title='" + locale.link.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-link-modal'><i class='glyphicon glyphicon-share'></i></button>" +
+                    "<button type='button' class='btn " + size + " btn-default' title='" + locale.link.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-link-modal'><i class='glyphicon glyphicon-share'></i></button>" +
                 "</li>";
         },
 
@@ -167,13 +167,13 @@
                                     "<div class='alert alert-danger' style='visibility:hidden;' role='alert'>" + locale.table.invalid + "</div>" +
                                 "</div>" +
                                 "<div class='modal-footer'>" +
-                                    "<button class='btn btn-default' data-dismiss='modal'>" + locale.table.cancel + "</button>" +
-                                    "<button class='btn btn-primary' data-dismiss='modal'>" + locale.table.insert + "</button>" +
+                                    "<button type='button' class='btn btn-default' data-dismiss='modal'>" + locale.table.cancel + "</button>" +
+                                    "<button type='button' class='btn btn-primary' data-dismiss='modal'>" + locale.table.insert + "</button>" +
                                 "</div>" +
                             "</div>" +
                         "</div>" +
                     "</div>" +
-                    "<button class='btn " + size + " btn-default' title='" + locale.table.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-table-modal'><i class='glyphicon glyphicon-th'></i></button>" +
+                    "<button type='button' class='btn " + size + " btn-default' title='" + locale.table.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-table-modal'><i class='glyphicon glyphicon-th'></i></button>" +
                 "</li>";
         },
 
@@ -207,13 +207,13 @@
                                     "<div class='alert alert-danger' style='visibility:hidden;' role='alert'></div>" +
                                 "</div>" +
                                 "<div class='modal-footer'>" +
-                                    "<button class='btn btn-default' data-dismiss='modal'>" + locale.image.cancel + "</button>" +
-                                    "<button class='btn btn-primary' data-dismiss='modal'>" + locale.image.insert + "</button>" +
+                                    "<button type='button' class='btn btn-default' data-dismiss='modal'>" + locale.image.cancel + "</button>" +
+                                    "<button type='button' class='btn btn-primary' data-dismiss='modal'>" + locale.image.insert + "</button>" +
                                 "</div>" +
                             "</div>" +
                         "</div>" +
                     "</div>" +
-                    "<button class='btn " + size + " btn-default' title='" + locale.image.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-image-modal'><i class='glyphicon glyphicon-picture'></i></button>" +
+                    "<button type='button' class='btn " + size + " btn-default' title='" + locale.image.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-image-modal'><i class='glyphicon glyphicon-picture'></i></button>" +
                 "</li>";
         },
 
@@ -247,13 +247,13 @@
                                     "<div class='alert alert-danger' style='visibility:hidden;' role='alert'>" + locale.video.invalid + "</div>" +
                                 "</div>" +
                                 "<div class='modal-footer'>" +
-                                    "<button class='btn btn-default' data-dismiss='modal'>" + locale.video.cancel + "</button>" +
-                                    "<button class='btn btn-primary' data-dismiss='modal'>" + locale.video.insert + "</button>" +
+                                    "<button type='button' class='btn btn-default' data-dismiss='modal'>" + locale.video.cancel + "</button>" +
+                                    "<button type='button' class='btn btn-primary' data-dismiss='modal'>" + locale.video.insert + "</button>" +
                                 "</div>" +
                             "</div>" +
                         "</div>" +
                     "</div>" +
-                    "<button class='btn " + size + " btn-default' title='" + locale.video.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-video-modal'><i class='glyphicon glyphicon-facetime-video'></i></button>" +
+                    "<button type='button' class='btn " + size + " btn-default' title='" + locale.video.insert + "' tabindex='-1' data-toggle='modal' data-target='.bootstrap-wysihtml5-insert-video-modal'><i class='glyphicon glyphicon-facetime-video'></i></button>" +
                 "</li>";
         },
 
@@ -353,7 +353,7 @@
                     if(key === "image") {
                         this.initInsertImage(toolbar, culture);
                     }
-                    
+
                     if(key === "video") {
                         this.initInsertVideo(toolbar);
                     }
@@ -475,7 +475,7 @@
                 setTimeout(function(){self.editor.currentView.element.focus();});
             });
         },
-        
+
         initInsertVideo: function(toolbar) {
             var self = this;
             var insertVideoModal = toolbar.find('.bootstrap-wysihtml5-insert-video-modal');
@@ -782,7 +782,7 @@
                         "has_visible_contet": 1
                     }
                 },
-                
+
                 "alignment_object": {
                     "classes": {
                         "wysiwyg-text-align-center": 1,
@@ -797,26 +797,26 @@
                         "text-align": ["left", "right", "center"]
                     }
                 },
-                
+
                 "valid_image_src": {
                     "attrs": {
                         "src": /^[^data\:]/i
                     }
                 },
-                
+
                 "text_color_object": {
                   "styles": {
                     "color": true,
                     "background-color": true
                   }
                 },
-                
+
                 "text_fontsize_object": {
                   "styles": {
                     "font-size": true
                   }
                 },
-                
+
                 "text_formatting_object": {
                     "classes": {
                         "wysiwyg-color-aqua": 1,
@@ -997,7 +997,7 @@
 
 }(window.jQuery, window.wysihtml5);
 
-/** 
+/**
  * Insert Video Functions
  */
 
