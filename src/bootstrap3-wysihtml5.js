@@ -880,7 +880,7 @@
                 },
                 "iframe": {
                     "check_attributes": {
-                        "src":"url",
+                        "src":"any",
                         "width":"numbers",
                         "height":"numbers"
                     },
