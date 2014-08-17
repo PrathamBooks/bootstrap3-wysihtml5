@@ -490,8 +490,8 @@
                 var embedUrl = false;
 
 
-                if (/^(https?\:\/\/(www\.)?(m\.)youtube.com\/)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www\.)?(m\.)youtube.com\/)(watch?v=|v\/|embeded\/)/, "");
+                if (/^(https?\:\/\/(www\.)?(m\.)?youtube.com\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www\.)?(m\.)?youtube.com\/)(watch?v=|v\/|embeded\/)/, "");
                     embedUrl = '//www.youtube.com/embed/' + embedUrl;
                 } else if(/^(https?\:\/\/(www\.)?youtu.be\/)/i.test(linkUrl)) {
                     embedUrl = linkUrl.replace(/^(https?\:\/\/(www.)?youtu.be\/)/, "");
