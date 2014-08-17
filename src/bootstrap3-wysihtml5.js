@@ -242,7 +242,7 @@
                                             "<input type='radio' data-value='tv' name='options'> &nbsp;4:3&nbsp;" +
                                         "</label>" +
                                     "</div>" +
-                                    "<i class='glyphicon glyphicon-question-sign pull-right' title='" + locale.video.supported + ": &#10;YouTube, &#10;Vimeo, &#10;DailyMotion, &#10;Vbox7'></i>" +
+                                    "<i class='glyphicon glyphicon-question-sign pull-right' title='" + locale.video.supported + ": &#10;YouTube, &#10;Vimeo, &#10;Metacafe, &#10;DailyMotion, &#10;Vbox7'></i>" +
                                     "<br/><br/>" +
                                     "<div class='alert alert-danger' style='visibility:hidden;' role='alert'>" + locale.video.invalid + "</div>" +
                                 "</div>" +
