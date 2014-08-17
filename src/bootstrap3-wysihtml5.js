@@ -428,6 +428,7 @@
                 if(e.which == 13) {
                     insertImage();
                     insertImageModal.modal('hide');
+                    return false;
                 }
             });
 
@@ -525,6 +526,7 @@
                 if(e.which == 13) {
                     insertVideo();
                     insertVideoModal.modal('hide');
+                    return false;
                 }
             });
 
@@ -583,6 +585,7 @@
                 if(e.which == 13) {
                     insertLink();
                     insertLinkModal.modal('hide');
+                    return false;
                 }
             });
 
@@ -642,6 +645,7 @@
             rowsInput.keypress(function(e) {
                 if(e.which == 13) {
                     colsInput.focus();
+                    return false;
                 }
             });
 
@@ -649,6 +653,7 @@
                 if(e.which == 13) {
                     insertTable();
                     insertTableModal.modal('hide');
+                    return false;
                 }
             });
 
