@@ -490,21 +490,20 @@
                 var embedUrl = false;
 
 
-                if (/^(https?\:\/\/(www.)?youtube.com\/watch\?v=)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www.)?youtube.com\/watch\?v=)/, "");
-                    embedUrl = '//www.youtube.com/embed/' + embedUrl.split('&')[0];
-                } else if(/^(https?\:\/\/(www.)?youtu.be\/)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?youtu.be\/)/, "");
-                    embedUrl = '//www.youtube.com/embed/' + embedUrl.split('&')[0];
-                } else if(/^(https?\:\/\/(www.)?vimeo.com\/)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?vimeo.com\/)/, "");
-                    embedUrl = '//player.vimeo.com/video/' + embedUrl.split('&')[0] + "?title=0&byline=0&portrait=0&badge=0";
-                } else if(/^(https?\:\/\/(www.)?dailymotion.com\/)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?dailymotion.com\/)/, "");
-                    embedUrl = '//dailymotion.com/embed/' + embedUrl.split('&')[0];
-                } else if(/^(https?\:\/\/(www.)?vbox7.com\/play:)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^^(https?\:\/\/(www.)?vbox7.com\/play:)/, "");
-                    embedUrl = '//vbox7.com/emb/external.php?vid=' + embedUrl.split('&')[0];
+                if (/^(https?\:\/\/(www\.)?(m\.)youtube.com\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www\.)?(m\.)youtube.com\/)(watch?v=|v\/|embeded\/)/, "");
+                    embedUrl = '//www.youtube.com/embed/' + embedUrl;
+                } else if(/^(https?\:\/\/(www\.)?youtu.be\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www.)?youtu.be\/)/, "");
+                    embedUrl = '//www.youtube.com/embed/' + embedUrl;
+                } else if(/^(https?\:\/\/(www\.)?(player\.)?vimeo.com\/)/i.test(linkUrl)) {
+                    embedUrl = '//player.vimeo.com/video/' + linkUrl.split("/").pop() + "?title=0&byline=0&portrait=0&badge=0";
+                } else if(/^(https?\:\/\/(www\.)?dailymotion.com\/)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace("/video/", "/embed/video/");
+                } else if(/^(https?\:\/\/(www\.)?vbox7.com\/play:)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace("/play:", "/emb/external.php?vid=");
+                } else if(/^(https?\:\/\/(www\.)?metacafe.com\/w(atch)?)/i.test(linkUrl)) {
+                    embedUrl = linkUrl.replace(/\/w(atch)?\//, "embed");
                 }
 
                 if(embedUrl) {
