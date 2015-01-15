@@ -490,12 +490,13 @@
                 var embedUrl = false;
 
 
-                if (/^(https?\:\/\/(www\.)?(m\.)?youtube.com\/)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www\.)?(m\.)?youtube.com\/)(watch?v=|v\/|embeded\/)/, "");
-                    embedUrl = '//www.youtube.com/embed/' + embedUrl;
-                } else if(/^(https?\:\/\/(www\.)?youtu.be\/)/i.test(linkUrl)) {
-                    embedUrl = linkUrl.replace(/^(https?\:\/\/(www.)?youtu.be\/)/, "");
-                    embedUrl = '//www.youtube.com/embed/' + embedUrl;
+                if (/^(https?\:\/\/(www\.)?(m\.)?youtube.com\/)/i.test(linkUrl) || /^(https?\:\/\/(www\.)?youtu.be\/)/i.test(linkUrl)) {
+                    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+                    var match = linkUrl.match(regExp);
+                    if ( match && match[7].length == 11 ){
+                        embedUrl = match[7];
+                        embedUrl = '//www.youtube.com/embed/' + embedUrl;
+                    }
                 } else if(/^(https?\:\/\/(www\.)?(player\.)?vimeo.com\/)/i.test(linkUrl)) {
                     embedUrl = '//player.vimeo.com/video/' + linkUrl.split("/").pop() + "?title=0&byline=0&portrait=0&badge=0";
                 } else if(/^(https?\:\/\/(www\.)?dailymotion.com\/)/i.test(linkUrl)) {
