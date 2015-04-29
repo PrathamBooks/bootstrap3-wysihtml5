@@ -5,19 +5,18 @@
         "font-styles": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "" +
-                "<li class='dropdown wysihtml5-toolbar-fontStyles'>" +
+                "<li class='dropdown wysihtml5-toolbar-fontSize'>" +
                     "<a class='btn dropdown-toggle " + size + " btn-default' data-toggle='dropdown' href='#'>" +
-                        "<i class='glyphicon glyphicon-font'></i>&nbsp;<span class='current-font'>" + locale.font_styles.normal + "</span>&nbsp;<b class='caret'></b>" +
+                        "<i class='glyphicon glyphicon-font'></i>&nbsp;<span class='current-font'>" + "Normal"+ "</span>&nbsp;<b class='caret'></b>" +
                     "</a>" +
-                    "<ul class='dropdown-menu'>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='div' tabindex='-1'>" + locale.font_styles.normal + "</a></li>" +
+                    "<ul class='dropdown-menu menu-size'>" +
+                        "<li><a data-wysihtml5-command='fontSize' data-wysihtml5-command-value='normal' tabindex='-1'>Normal</a></li>" +
                         "<li role='presentation' class='divider'></li>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h1' tabindex='-1'><h1>" + locale.font_styles.h1 + "</h1></a></li>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h2' tabindex='-1'><h2>" + locale.font_styles.h2 + "</h2></a></li>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1'><h3>" + locale.font_styles.h3 + "</h3></a></li>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h4' tabindex='-1'><h4>" + locale.font_styles.h4 + "</h4></a></li>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h5' tabindex='-1'><h5>" + locale.font_styles.h5 + "</h5></a></li>" +
-                        "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h6' tabindex='-1'><h6>" + locale.font_styles.h6 + "</h6></a></li>" +
+                        "<li><a class='largest' data-wysihtml5-command='fontSize' data-wysihtml5-command-value='largest' tabindex='-1'>Largest</a></li>" +
+                        "<li><a class='large' data-wysihtml5-command='fontSize' data-wysihtml5-command-value='large' tabindex='-1'>Large</a></li>" +
+                        "<li><a class='medium' data-wysihtml5-command='fontSize' data-wysihtml5-command-value='medium' tabindex='-1'>Medium</a></li>" +
+                        "<li><a class='small' data-wysihtml5-command='fontSize' data-wysihtml5-command-value='small' tabindex='-1'>Small</a></li>" +
+                        "<li><a class='smallest' data-wysihtml5-command='fontSize' data-wysihtml5-command-value='smallest' tabindex='-1'>Smallest</li>" +
                     "</ul>" +
                 "</li>";
         },
@@ -370,7 +369,7 @@
                 }
             }
 
-            toolbar.find("a[data-wysihtml5-command='formatBlock']").click(function(e) {
+            toolbar.find("a[data-wysihtml5-command='fontSize']").click(function(e) {
                 var target = e.target || e.srcElement;
                 var el = $(target);
                 self.toolbar.find('.current-font').text(el.html());
@@ -741,15 +740,12 @@
         events: {},
         parserRules: {
             classes: {
-                "wysiwyg-font-size-smaller": 1,
-                "wysiwyg-font-size-larger": 1,
-                "wysiwyg-font-size-xx-large": 1,
-                "wysiwyg-font-size-x-large": 1,
-                "wysiwyg-font-size-large": 1,
-                "wysiwyg-font-size-medium": 1,
-                "wysiwyg-font-size-small": 1,
-                "wysiwyg-font-size-x-small": 1,
-                "wysiwyg-font-size-xx-small": 1,
+                "text-font-normal": 1,
+                "text-font-largest": 1,
+                "text-font-large": 1,
+                "text-font-medium": 1,
+                "text-font-small": 1,
+                "text-font-smallest": 1,
                 "wysiwyg-text-align-right": 1,
                 "wysiwyg-text-align-center": 1,
                 "wysiwyg-text-align-left": 1,
@@ -851,6 +847,7 @@
                 }
             },*/
             tags: {
+                "span": {},
                 "b":  {},
                 "i":  {},
                 "br": {},
@@ -892,7 +889,6 @@
                     }
                 },
                 "p": 1,
-                "span": 1,
                 "div": 1,
                 "table": 1,
                 "tbody": 1,
@@ -1126,3 +1122,4 @@
           }
       };
 }(wysihtml5));
+
