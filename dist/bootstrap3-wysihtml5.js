@@ -52,6 +52,8 @@
                         "<a class='btn " + size + " btn-default' data-wysihtml5-command='bold' title='" + locale.emphasis.bold + " (CTRL+B)' tabindex='-1'><i class='glyphicon glyphicon-bold'></i></a>" +
                         "<a class='btn " + size + " btn-default' data-wysihtml5-command='italic' title='" + locale.emphasis.italic + " (CTRL+I)' tabindex='-1'><i class='glyphicon glyphicon-italic'></i></a>" +
                         "<a class='btn " + size + " btn-default' data-wysihtml5-command='underline' title='" + locale.emphasis.underline + " (CTRL+U)' tabindex='-1'><b><u>U</u></b></a>" +
+                        "<a class='btn " + size + " btn-default' data-wysihtml5-command='sub' title='" + locale.emphasis.subscript + " (CTRL+S)' tabindex='-1'><i class='fa fa-subscript'></i></a>" +
+                        "<a class='btn " + size + " btn-default' data-wysihtml5-command='sup' title='" + locale.emphasis.superscript + " (CTRL+P)' tabindex='-1'><span class='fa fa-superscript'></span></a>" +
                     "</div>" +
                 "</li>";
         },
@@ -860,6 +862,8 @@
                 "h4": {},
                 "h5": {},
                 "h6": {},
+                "sub": {},
+                "sup": {},
                 "blockquote": {},
                 "u": 1,
                 "img": {
@@ -932,7 +936,9 @@
             emphasis: {
                 bold: "Bold",
                 italic: "Italic",
-                underline: "Underline"
+                underline: "Underline",
+                subscript: "Subscript",
+                superscript: "Superscript"
             },
             lists: {
                 unordered: "Unordered list",
