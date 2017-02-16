@@ -278,7 +278,8 @@
         for(var t in toolbarOpts.customTemplates) {
             tpl[t] = toolbarOpts.customTemplates[t];
         }
-        this.toolbar = this.createToolbar(el, toolbarOpts);
+        //Rendering toolbar from outside
+        this.toolbar = $(document.getElementById("toolbar"));//this.createToolbar(el, toolbarOpts);
         this.editor =  this.createEditor(options);
 
         window.editor = this.editor;
@@ -314,7 +315,7 @@
             return editor;
         },
 
-        createToolbar: function(el, options) {
+        /*createToolbar: function(el, options) {
             var self = this;
             var toolbar = $("<ul/>", {
                 'class' : "wysihtml5-toolbar",
@@ -384,7 +385,7 @@
             this.el.before(toolbar);
 
             return toolbar;
-        },
+        },*/
 
         initHtml: function(toolbar) {
             var changeViewSelector = "[data-wysihtml5-action='change_view']";
